@@ -1,0 +1,54 @@
+## Ignore Visual Studio files
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Build results
+bin/
+obj/
+out/
+
+## Rider / VS Code
+.idea/
+.vscode/
+
+## ASP.NET Core
+appsettings.Development.json
+appsettings.Local.json
+
+## Logs
+logs/
+*.log
+
+## OS generated files
+.DS_Store
+Thumbs.db
+
+## NuGet
+*.nupkg
+.nuget/
+packages/
+
+## Test results
+TestResults/
+
+## Publish output
+publish/
+
+## EF Core
+Migrations/*.Designer.cs
+Migrations/*.resx
+
+## Secrets
+secrets.json
+*.pfx
+*.cer
+*.key
+
+## Docker
+docker-compose.override.yml
+
+## Coverage
+coverage/
