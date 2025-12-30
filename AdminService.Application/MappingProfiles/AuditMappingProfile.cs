@@ -13,8 +13,9 @@ namespace AdminService.Application.MappingProfiles
     public class AuditMappingProfile : Profile
     {
         public AuditMappingProfile() {
+            // Mapping for ReadAuditTask.
             CreateMap<AuditTask, ReadAuditTask>();
-            // Mapping for ModifyAuditTask
+            // Mapping for ModifyAuditTask.
             CreateMap<AuditTask, ModifyAuditTask>(); 
         }
     }
