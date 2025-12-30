@@ -1,5 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using AdminService.Infrastructure.Data;
+using AdminService.Infrastructure.Repository.Interfaces;
+using AdminService.Application.Services;
+using AdminService.Application.Interfaces;
+using AdminService.Application.MappingProfiles;
+//using AdminService.Application.MappingProfiles;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +19,11 @@ builder.Services.AddDbContext<AdminServiceDbContext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("AdminServiceConnectionString")));
 
+//builder.Services.AddScoped<IRepository,Repository>
+// Fix: Add missing semicolon and correct the generic type registration syntax
+builder.Services.AddScoped<IRepository, Repository>();
+builder.Services.AddScoped<IAuditService, AuditService>();
+builder.Services.AddAutoMapper(typeof(AuditProfiles).Assembly);
 
 var app = builder.Build();
 

@@ -10,7 +10,9 @@ namespace AdminService.Infrastructure.Repository.Interfaces
 {
     public interface IRepository
     {
-        public Task<IEnumerable<AuditTask>> GetAll();
-        //public Task<DTOs.Responses.ReadAuditTask> GetById(int id);
+        public Task<IList<AuditTask>> GetAll();
+        public Task<AuditTask> GetById(int id);
+        public Task<AuditTask> CreateAudit(AuditTask createAuditTask);
+        public Task<AuditTask> UpdateAudit(AuditTask updateAuditTask);
     }
 }

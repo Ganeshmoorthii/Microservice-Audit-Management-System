@@ -2,10 +2,11 @@
 using AdminService.Application.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using AdminService.Application.DTOs.Requests;
 
 namespace AdminService.API.Controllers
 {
-    [Route("api/[controller]/[Action]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class AuditTasksController : ControllerBase
     {
@@ -36,6 +37,21 @@ namespace AdminService.API.Controllers
             }
             return audit;
         }
-        //[HttpPut]
+        [HttpPut]
+        public async Task<IActionResult> CreateNewAudit([FromBody] CreateAuditTaskDTO newAuditTask)
+        {
+            await _auditService.CreateAuditAsync(newAuditTask);
+            return Ok("Audit created successfully");
+        }
+        [HttpPatch("{id}")]
+        public async Task<IActionResult> updateAudit([FromRoute] int id, [FromBody] UpdateAuditTaskDTO updateAuditTask)
+        {
+            if (id != updateAuditTask.AuditTaskId)
+            {
+                return BadRequest("Audit ID mismatch");
+            }
+            await _auditService.UpdateAuditAsync(updateAuditTask);
+            return Ok("Audit updated successfully");
+        }
     }
 }

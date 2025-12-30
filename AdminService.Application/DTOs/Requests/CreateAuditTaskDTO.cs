@@ -3,21 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UserService.Domain.Enums;
+using AdminService.Domain.Enums;
 
-namespace UserService.Application.DTOs.Responses
+namespace AdminService.Application.DTOs.Requests
 {
-    public class ReadAuditTask
+    public class CreateAuditTaskDTO
     {
-        public int AuditTaskId { get; set; }
-        public string AuditTitle { get; set; }
+        public string AuditTitle { get; set; } = string.Empty;
         public AuditType AuditType { get; set; }
         public Department Department { get; set; }
+        public string TaskDescription { get; set; } = string.Empty;
         public RiskLevel RiskLevel { get; set; }
-        public AuditStatus AuditStatus { get; set; }
+        public ComplianceStandard ComplianceStandard { get; set; }
+        public EvidenceRequired EvidenceRequired { get; set; }
         public DateTime AuditStartDate { get; set; }
         public DateTime AuditEndDate { get; set; }
         public DateTime TargetCompletionDate { get; set; }
-        public DateTime CreatedOn { get; set; }
     }
 }
